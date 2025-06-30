@@ -1,0 +1,47 @@
+## gamedev workshop @ arts @ large
+
+>#### Setup ~10m
+* cheat sheet printouts
+* accessing piskel
+* using vscode
+```
+. setup.sh
+```
+
+>#### Teaching Python Basics ~15m
+* Walk throught the Mosh's cheatsheet with code examples
+
+>#### Explaining Game Concepts ~5m
+* Game Loop
+* Positions / Size
+    * Screen-space coordinates
+    * Collisions
+
+>#### Teaching the Library ~15m
+* Walk through my cheatsheet with code examples
+
+Animation:
+* load in an animation from a spritesheet
+
+Sprite:
+* an in-game object with an animation, position, and size
+* Sprites are drawn every frame
+
+Text:
+* a special sprite with text instead of animation
+
+>#### Using Piskel to create and export a spritesheet ~15m
+* [piskel](https://www.piskelapp.com/p/create/sprite/)
+* Create your animation
+    * setup preview to full size!
+    * ensure that there is no border around the edges of each frame
+
+* Exporting your completed animation:
+    * Consider a good FPS value (experimentation is also great)
+    * Make sure you remember how many rows and columns you have
+    * Move your png spritesheet into the `src/spritesheets_here/` folder
+
+>#### Deliverable(s)
+* Make something silly!
+
+

@@ -1,0 +1,7 @@
+[project]
+name = "gamedev_workshop"
+version = "3000.0"
+
+dependencies = [
+    "pygame == 2.6.1"
+]
