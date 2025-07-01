@@ -25,13 +25,15 @@ class Direction(Enum):
 
 
 class Position():
-    def __init__(self, pos=None, x=None, y=None):
-        if pos:
-            self.x = pos[0]
-            self.y = pos[1]
-        elif x and y:
-            self.x = x
-            self.y = y
+    '''
+    Stores a (x, y) coordinate posision
+    '''
+    def __init__(self, x, y):
+        self.x = int(x)
+        self.y = int(y)
+
+    def to_tuple(self):
+        return (self.x, self.y)
 
 
 class Animation():
@@ -72,19 +74,21 @@ class Sprite(pygame.sprite.Sprite):
     '''
     Stores an in-game sprite
     '''
-    def __init__(self, animation: Animation, position=(0, 0), size=(100, 100)):
+    def __init__(self, animation: Animation, position: Position, size=(100, 100)):
         pygame.sprite.Sprite.__init__(self, sprites)
         self.anim = animation
         self.current_frame = 0
         self.rect = self.anim.get_frames()[0].get_rect()
         self.set_size(size)
-        self.set_pos(position)
+        self.set_pos(pos=position)
         self.dx = 0
         self.dy = 0
 
-    def set_pos(self, pos):
-        x = pos[0]
-        y = pos[1]
+    def set_pos(self, x=None, y=None, pos: Position | None=None):
+        if pos:
+            x = pos.x
+            y = pos.y
+
         adjusted_width = width - (self.rect.width / 2)
         adjusted_height = height - (self.rect.height / 2)
         
@@ -100,14 +104,14 @@ class Sprite(pygame.sprite.Sprite):
         self.rect.x = x - (self.rect.width / 2)
         self.rect.y = y - (self.rect.height / 2)
 
-    def get_pos(self, absolute=False):
+    def get_pos(self, absolute=False) -> Position:
         '''
         Get the position of this sprite
         if absolute is True, return the position of the top-left corner
         '''
         if absolute:
-            return (self.rect.x, self.rect.y)
-        return (self.rect.x + (self.rect.width / 2), self.rect.y + (self.rect.height / 2))
+            return Position(self.rect.x, self.rect.y)
+        return Position(self.rect.x + (self.rect.width / 2), self.rect.y + (self.rect.height / 2))
 
     def update(self):
         self.current_frame += self.anim.get_fps() / FPS
@@ -117,8 +121,7 @@ class Sprite(pygame.sprite.Sprite):
 
         frame = pygame.transform.scale(self.anim.get_frames()[int(self.current_frame)], self.rect.size)
 
-        print(self.dx)
-        self.set_pos( (self.get_pos()[0] + self.dx, self.get_pos()[1] + self.dy) )
+        self.set_pos(self.get_pos().x + self.dx, self.get_pos().y + self.dy)
 
         window.blit(frame, self.rect)
 
@@ -133,9 +136,9 @@ class Sprite(pygame.sprite.Sprite):
         Set a new animation for this sprite
         '''
         self.anim = new_animation
-        pos = (self.get_pos()[0], self.get_pos()[1])
+        pos = self.get_pos()
         size = self.get_size()
-        self.set_pos(pos)
+        self.set_pos(pos=pos)
         self.set_size(size)
 
     def clicked(self):
@@ -148,7 +151,7 @@ class Sprite(pygame.sprite.Sprite):
         '''
         Is the mouse hovered over this sprite?
         '''
-        return self.rect.collidepoint(get_mouse_pos()) 
+        return self.rect.collidepoint(get_mouse_pos().to_tuple()) 
 
     def set_size(self, dimensions):
         '''
@@ -201,7 +204,7 @@ class Sprite(pygame.sprite.Sprite):
 
 
 class Text(pygame.sprite.Sprite):
-    def __init__(self, words="", position=(), color=BLUE):
+    def __init__(self, position: Position, words="", color=BLUE):
         pygame.sprite.Sprite.__init__(self, sprites)
         self.words = words
         self.position = position
@@ -210,7 +213,7 @@ class Text(pygame.sprite.Sprite):
 
     def update(self):
         text = self.font.render(str(self.words), True, self.color)
-        window.blit(text, self.position)
+        window.blit(text, self.position.to_tuple())
 
     def set_text(self, t):
         self.words = t 
@@ -258,28 +261,32 @@ def update():
     pygame.display.flip()
 
 
-def get_mouse_pos():
-    return pygame.mouse.get_pos()
-
-
-def get_mouse_x():
-    return pygame.mouse.get_pos()[0]
-
-
-def get_mouse_y():
-    return pygame.mouse.get_pos()[1]
+def get_mouse_pos() -> Position:
+    '''
+    Get Position of mouse
+    '''
+    return Position(pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
 
 
 def mouse_clicked():
+    '''
+    Is the mouse being clicked?
+    '''
     state = pygame.mouse.get_pressed()
     return state[0] or state[2]
 
 
 def get_keys():
+    '''
+    Get a list of all keys being pressed
+    '''
     return [e.key for e in pygame.event.get() if e.type is pygame.KEYDOWN] 
 
 
 def wait(seconds: float):
+    '''
+    Wait for `seconds` and then return True
+    '''
     global wait_amount
     if wait_amount < seconds:
         wait_amount += 1 / FPS
@@ -290,11 +297,17 @@ def wait(seconds: float):
 
 
 def quit():
+    '''
+    Quit the game
+    '''
     pygame.quit()
     exit()
 
 
 def check_collision(a: Sprite, b: Sprite):
-    return True
+    '''
+    Check if sprite a is colliding with sprite b
+    '''
+    return a.rect.colliderect(b.rect)
 
 
