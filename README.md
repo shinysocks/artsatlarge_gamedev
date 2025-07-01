@@ -1,4 +1,5 @@
 ## gamedev workshop @ arts @ large
+### don't be afraid to ask for help!
 
 >#### Setup ~10m
 * cheat sheet printouts
@@ -21,7 +22,10 @@
 * Walk through my cheatsheet with code examples
 
 Animation:
-* load in an animation from a spritesheet
+* load an animation from a spritesheet
+
+Position:
+* an (x, y) coordinate representing a location within the game window
 
 Sprite:
 * an in-game object with an animation, position, and size
