@@ -4,7 +4,7 @@ import pygame
 
 from lib import (
     BLUE, GREEN, RED, WHITE, BLACK,
-    Animation, Sprite, Text,
+    Animation, Sprite, Text, Direction, Position,
     initialize,
     set_background_color,
     update,
@@ -12,10 +12,10 @@ from lib import (
     get_keys, quit, wait
 )
 
-# TODO: document pygame keys
+# Pygame keys documentation here: https://www.pygame.org/docs/ref/key.html
 
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 800
 SILLY_COLOR = (230, 100, 35)
 
 # initialize the game window
@@ -60,7 +60,7 @@ while True:
     if cat.clicked():
         # increase the size of the cat
         cat.set_size((cat.get_width() + 1, cat.get_height() + 1))
-        cat.set_pos((SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
+        cat.set_pos((SCREEN_WIDTH / 2, cat.get_pos()[1]))
 
         text.set_color(RED)
         text.set_text("You're pressing on the cat!")
@@ -74,8 +74,11 @@ while True:
 
     for key in get_keys():
         if key == pygame.K_SPACE:
-            print("space is pressed")
+            # move the cat up
+            cat.move(Direction.UP)
 
+    # make the cat fall down
+    cat.move(Direction.DOWN, 2)
 
     # do not remove
     update()

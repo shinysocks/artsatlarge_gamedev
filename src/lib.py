@@ -1,5 +1,5 @@
 import pygame
-from math import sqrt
+from enum import Enum
 
 FPS = 60
 
@@ -15,6 +15,23 @@ BLACK = (0, 0, 0)
 background_color = WHITE
 MOUSEBUTTONDOWN = pygame.MOUSEBUTTONDOWN
 wait_amount = 0
+
+
+class Direction(Enum):
+    UP = 1
+    DOWN = 2
+    LEFT = 3
+    RIGHT = 4
+
+
+class Position():
+    def __init__(self, pos=None, x=None, y=None):
+        if pos:
+            self.x = pos[0]
+            self.y = pos[1]
+        elif x and y:
+            self.x = x
+            self.y = y
 
 
 class Animation():
@@ -62,6 +79,8 @@ class Sprite(pygame.sprite.Sprite):
         self.rect = self.anim.get_frames()[0].get_rect()
         self.set_size(size)
         self.set_pos(position)
+        self.dx = 0
+        self.dy = 0
 
     def set_pos(self, pos):
         x = pos[0]
@@ -81,17 +100,14 @@ class Sprite(pygame.sprite.Sprite):
         self.rect.x = x - (self.rect.width / 2)
         self.rect.y = y - (self.rect.height / 2)
 
-    def get_pos_y(self):
-        return self.rect.y + (self.rect.height / 2)
-
-    def get_pos_x(self):
-        return self.rect.x + (self.rect.width / 2)
-
-    def set_pos_x(self, x):
-        self.rect.x = x
-
-    def set_pos_y(self, y):
-        self.rect.y = y
+    def get_pos(self, absolute=False):
+        '''
+        Get the position of this sprite
+        if absolute is True, return the position of the top-left corner
+        '''
+        if absolute:
+            return (self.rect.x, self.rect.y)
+        return (self.rect.x + (self.rect.width / 2), self.rect.y + (self.rect.height / 2))
 
     def update(self):
         self.current_frame += self.anim.get_fps() / FPS
@@ -101,33 +117,87 @@ class Sprite(pygame.sprite.Sprite):
 
         frame = pygame.transform.scale(self.anim.get_frames()[int(self.current_frame)], self.rect.size)
 
+        print(self.dx)
+        self.set_pos( (self.get_pos()[0] + self.dx, self.get_pos()[1] + self.dy) )
+
         window.blit(frame, self.rect)
 
     def get_size(self):
+        '''
+        Get the size of the sprite -> (width, height)
+        '''
         return self.rect.size
 
     def set_anim(self, new_animation: Animation):
+        '''
+        Set a new animation for this sprite
+        '''
         self.anim = new_animation
-        pos = (self.get_pos_x(), self.get_pos_y())
+        pos = (self.get_pos()[0], self.get_pos()[1])
         size = self.get_size()
         self.set_pos(pos)
         self.set_size(size)
 
     def clicked(self):
+        '''
+        Is this sprite being clicked on?
+        '''
         return self.hovered() and mouse_clicked()
 
     def hovered(self):
+        '''
+        Is the mouse hovered over this sprite?
+        '''
         return self.rect.collidepoint(get_mouse_pos()) 
 
     def set_size(self, dimensions):
+        '''
+        Set the width and height of this sprite
+
+        dimensions should be in form (width, height)
+        '''
         if dimensions[0] <= width and dimensions[1] <= height:
             self.rect.size = dimensions
 
     def get_width(self):
+        '''
+        Get the width of this sprite (in pixels)
+        '''
         return self.rect.width
 
     def get_height(self):
+        '''
+        Get the height of this sprite (in pixels)
+        '''
         return self.rect.height
+
+    def move(self, direction: Direction, speed=1.0):
+        '''
+        Set the sprite to move.
+        direction can be:
+            Direction.UP
+            Direction.DOWN
+            Direction.LEFT
+            Direction.RIGHT
+
+        Default speed is 1
+        '''
+
+        if direction is Direction.UP:
+            self.dy = -speed
+        elif direction is Direction.DOWN:
+            self.dy = speed
+        elif direction is Direction.LEFT:
+            self.dx = -speed
+        else:
+            self.dx = speed
+
+    def stop(self):
+        '''
+        Stop the sprite.
+        '''
+        self.dx = 0
+        self.dy = 0
 
 
 class Text(pygame.sprite.Sprite):
@@ -223,5 +293,8 @@ def quit():
     pygame.quit()
     exit()
 
-    
+
+def check_collision(a: Sprite, b: Sprite):
+    return True
+
 
