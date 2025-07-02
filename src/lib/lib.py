@@ -209,7 +209,7 @@ class Text(pygame.sprite.Sprite):
         self.words = words
         self.position = position
         self.color = color
-        self.font = pygame.font.Font("src/font.ttf", 50)
+        self.font = pygame.font.Font("font.ttf", 50)
 
     def update(self):
         text = self.font.render(str(self.words), True, self.color)
