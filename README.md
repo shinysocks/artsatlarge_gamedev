@@ -1,5 +1,5 @@
 ## gamedev workshop @ arts @ large
-### don't be afraid to ask for help!
+### AI Free!
 
 >#### Setup ~10m
 * cheat sheet printouts
