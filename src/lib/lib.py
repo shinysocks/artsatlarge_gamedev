@@ -84,7 +84,7 @@ class Sprite(pygame.sprite.Sprite):
         self.dx = 0
         self.dy = 0
 
-    def set_pos(self, x=None, y=None, pos: Position | None=None):
+    def set_pos(self, x=None, y=None, pos=None):
         if pos:
             x = pos.x
             y = pos.y
@@ -209,14 +209,14 @@ class Text(pygame.sprite.Sprite):
         self.words = words
         self.position = position
         self.color = color
-        self.font = pygame.font.Font("font.ttf", 50)
+        self.font = pygame.font.Font("src/lib/font.ttf", 50)
 
     def update(self):
         text = self.font.render(str(self.words), True, self.color)
         window.blit(text, self.position.to_tuple())
 
-    def set_text(self, t):
-        self.words = t 
+    def set_words(self, words):
+        self.words = words
 
     def set_color(self, c):
         self.color = c
@@ -238,6 +238,7 @@ def initialize(w: int, h: int, caption: str):
 def set_background_color(c):
     '''
     Set background color in RGB form: (0-255, 0-255, 0-255)
+    c: (R, G, B)
     '''
     global background_color
     background_color = c

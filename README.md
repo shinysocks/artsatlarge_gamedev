@@ -6,8 +6,12 @@
 * accessing piskel
 * using vscode
 ```
-. setup.sh
+source setup.sh
 ```
+
+#### Show Growing Cat!
+* Our deliverable is to make something silly!
+* Animation + simple movement!
 
 >#### Teaching Python Basics ~15m
 * Walk throught the Mosh's cheatsheet with code examples
@@ -44,8 +48,4 @@ Text:
     * Consider a good FPS value (experimentation is also great)
     * Make sure you remember how many rows and columns you have
     * Move your png spritesheet into the `src/spritesheets_here/` folder
-
->#### Deliverable(s)
-* Make something silly!
-
 

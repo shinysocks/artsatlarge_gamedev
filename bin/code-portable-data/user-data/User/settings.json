@@ -1,3 +1,10 @@
 {
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.startupPrompt": "never",
+    "files.autoSave": "afterDelay",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 1.4,
+    "editor.fontSize": 13
 }

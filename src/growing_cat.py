@@ -41,7 +41,7 @@ heart = Sprite(heart_default, get_mouse_pos(), size=(50, 50))
 text = Text(color=WHITE, position=Position(10, 10))
 
 # set our background color to black
-set_background_color(BLACK)
+set_background_color(SILLY_COLOR)
 
 # GAME LOOP
 while True:
