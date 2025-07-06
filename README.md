@@ -13,16 +13,16 @@ source setup.sh
 * Our deliverable is to make something silly!
 * Animation + simple movement!
 
->#### Teaching Python Basics ~15m
+#### Teaching Python Basics ~15m
 * Walk throught the Mosh's cheatsheet with code examples
 
->#### Explaining Game Concepts ~5m
+#### Explaining Game Concepts ~5m
 * Game Loop
 * Positions / Size
     * Screen-space coordinates
     * Collisions
 
->#### Teaching the Library ~15m
+#### Teaching the Library ~15m
 * Walk through my cheatsheet with code examples
 
 Animation:
@@ -38,7 +38,7 @@ Sprite:
 Text:
 * a special sprite with text instead of animation
 
->#### Using Piskel to create and export a spritesheet ~15m
+#### Using Piskel to create and export a spritesheet ~15m
 * [piskel](https://www.piskelapp.com/p/create/sprite/)
 * Create your animation
     * setup preview to full size!
