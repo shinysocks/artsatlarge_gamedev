@@ -8,7 +8,7 @@ Noah Dinan 2025
 
 import pygame
 
-from lib.lib import BLUE, GREEN, RED, WHITE, BLACK, Animation, Sprite, Text, Direction, Position, initialize, set_background_color, update, get_mouse_pos, mouse_clicked, get_keys, quit, wait
+from lib.lib import BLUE, GREEN, RED, WHITE, BLACK, Animation, Sprite, Text, Direction, Position, initialize, set_background_color, update, get_mouse_pos, mouse_clicked, quit, wait, check_collision, is_key_pressed
 
 # Pygame keys documentation here: https://www.pygame.org/docs/ref/key.html
 

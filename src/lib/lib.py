@@ -122,6 +122,8 @@ class Sprite(pygame.sprite.Sprite):
         frame = pygame.transform.scale(self.anim.get_frames()[int(self.current_frame)], self.rect.size)
 
         self.set_pos(self.get_pos().x + self.dx, self.get_pos().y + self.dy)
+        self.dx = 0
+        self.dy = 0
 
         window.blit(frame, self.rect)
 
@@ -194,13 +196,6 @@ class Sprite(pygame.sprite.Sprite):
             self.dx = -speed
         else:
             self.dx = speed
-
-    def stop(self):
-        '''
-        Stop the sprite.
-        '''
-        self.dx = 0
-        self.dy = 0
 
 
 class Text(pygame.sprite.Sprite):
@@ -277,11 +272,19 @@ def mouse_clicked():
     return state[0] or state[2]
 
 
-def get_keys():
+def is_key_pressed(key):
     '''
-    Get a list of all keys being pressed
+    Check if a key is being pressed
+
+    example: key=pygame.K_LEFT
     '''
-    return [e.key for e in pygame.event.get() if e.type is pygame.KEYDOWN] 
+    # return [e.key for e in pygame.event.get() if e.type is pygame.KEYDOWN] 
+    k = pygame.key.get_pressed()
+
+    if k[key]:
+        return True
+    return False
+
 
 
 def wait(seconds: float):

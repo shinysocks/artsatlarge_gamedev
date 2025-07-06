@@ -7,7 +7,7 @@ Daisy DiCarlo 2025
 '''
 
 import pygame
-from lib.lib import BLUE, GREEN, RED, WHITE, BLACK, Animation, Sprite, Text, Direction, Position, initialize, set_background_color, update, get_mouse_pos, mouse_clicked, get_keys, quit, wait, check_collision
+from lib.lib import BLUE, GREEN, RED, WHITE, BLACK, Animation, Sprite, Text, Direction, Position, initialize, set_background_color, update, get_mouse_pos, mouse_clicked, quit, wait, check_collision, is_key_pressed
 
 # Pygame keys documentation here: https://www.pygame.org/docs/ref/key.html
 
@@ -15,7 +15,7 @@ SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
 TITLE = "Fishy Winner"
 
-initialize(SCREEN_WIDTH, SCREEN_HEIGHT, TITLE) 
+initialize(SCREEN_WIDTH, SCREEN_HEIGHT, TITLE)
 
 # Create some animations
 swim = Animation("Fishy_Sprite.png", fps=7, columns=1, rows=2, number_of_frames=2)
@@ -41,7 +41,6 @@ while True:
         fishy.move(Direction.UP)
     else:
         fishy.set_anim(still)
-        fishy.stop()
 
 
     # if fishy hits finish line, WIN!
