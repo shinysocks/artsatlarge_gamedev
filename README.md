@@ -1,7 +1,7 @@
 ## gamedev workshop @ arts @ large
 ### AI Free!
 
->#### Setup ~10m
+#### Setup ~10m
 * cheat sheet printouts
 * accessing piskel
 * using vscode

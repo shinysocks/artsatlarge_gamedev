@@ -7,7 +7,7 @@ Noah Dinan 2025
 '''
 
 import pygame
-from lib.lib import BLUE, GREEN, RED, WHITE, BLACK, Animation, Sprite, Text, Direction, Position, initialize, set_background_color, update, get_mouse_pos, mouse_clicked, quit, wait, check_collision, is_key_pressed
+from lib.lib import Animation, Sprite, Text, Direction, Position, initialize, set_background_color, update, get_mouse_pos, mouse_clicked, quit, wait, check_collision, is_key_pressed
 
 # Pygame keys documentation here: https://www.pygame.org/docs/ref/key.html
 
@@ -24,7 +24,8 @@ initialize(SCREEN_WIDTH, SCREEN_HEIGHT, "CHANGE ME!")
 # sprite = Sprite(animation, Position(0, 0), size=(150, 150))
 
 
-set_background_color(GREEN)
+# set color to green
+set_background_color(0, 255, 0)
 
 
 while True:

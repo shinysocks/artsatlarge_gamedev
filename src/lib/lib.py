@@ -7,12 +7,7 @@ width = 0
 height = 0
 clock = pygame.time.Clock()
 sprites = pygame.sprite.Group()
-WHITE = (255, 255, 255)
-BLUE = (0, 0, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-BLACK = (0, 0, 0)
-background_color = WHITE
+background_color = (255, 255, 255)
 MOUSEBUTTONDOWN = pygame.MOUSEBUTTONDOWN
 wait_amount = 0
 
@@ -199,7 +194,7 @@ class Sprite(pygame.sprite.Sprite):
 
 
 class Text(pygame.sprite.Sprite):
-    def __init__(self, position: Position, words="", color=BLUE):
+    def __init__(self, position: Position, words="", color=(0, 0, 255)):
         pygame.sprite.Sprite.__init__(self, sprites)
         self.words = words
         self.position = position
@@ -213,8 +208,8 @@ class Text(pygame.sprite.Sprite):
     def set_words(self, words):
         self.words = words
 
-    def set_color(self, c):
-        self.color = c
+    def set_color(self, r, g, b):
+        self.color = (r, g, b)
 
 
 def initialize(w: int, h: int, caption: str):
@@ -230,13 +225,15 @@ def initialize(w: int, h: int, caption: str):
     pygame.display.set_caption(caption)
 
 
-def set_background_color(c):
+def set_background_color(red, green, blue):
     '''
-    Set background color in RGB form: (0-255, 0-255, 0-255)
-    c: (R, G, B)
+    Set background color in RGB form: r=0-255, g=0-255, b=0-255
+    r: How much red?
+    g: How much green?
+    b: How much blue?
     '''
     global background_color
-    background_color = c
+    background_color = (red, green, blue)
 
 
 def update():
