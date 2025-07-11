@@ -21,6 +21,7 @@ source setup.sh
 * Positions / Size
     * Screen-space coordinates
     * Collisions
+ * Show RGB with color picker
 
 #### Teaching the Library ~15m
 * Walk through my cheatsheet with code examples
