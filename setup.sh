@@ -2,7 +2,11 @@
 
 # install homebrew and python
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install python
+brew install git python || echo "no brew" ; exit 1
+
+git clone https://github.com/shinysocks/artsatlarge_gamedev || echo "no git" ; exit 1
+
+cd artsatlarge_gamedev
 
 python3 -m venv .venv
 
