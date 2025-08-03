@@ -10,9 +10,9 @@
 #               ▄█ ▀█▄▄█▀▀█ ▐█ ▌▐▌▐█·▐▀▀▪▄▐█· ▐█▌▐▀▀▪▄▐█▐█•             
 #               ▐█▄▪▐█▐█ ▪▐▌██ ██▌▐█▌▐█▄▄▌██. ██ ▐█▄▄▌ ███              
 #               ·▀▀▀▀  ▀  ▀ ▀▀  █▪▀▀▀ ▀▀▀ ▀▀▀▀▀•  ▀▀▀ . ▀               
-
-# Use this script to setup your development environment:
-#   source <(curl -s shinysocks.net/s/aal)
+#
+# Use the command below to set up your development environment
+# $ source <(curl -s shinysocks.net/s/aal)
 
 
 # install homebrew and python
