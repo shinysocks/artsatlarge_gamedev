@@ -1,10 +1,25 @@
 #!/bin/bash -i
+#
+#    ▄▄▄· ▄▄▄  ▄▄▄▄▄.▄▄ ·      ▄▄▄· ▄▄▄▄▄    ▄▄▌   ▄▄▄· ▄▄▄   ▄▄ • ▄▄▄ .
+#   ▐█ ▀█ ▀▄ █·•██  ▐█ ▀.     ▐█ ▀█ •██      ██•  ▐█ ▀█ ▀▄ █·▐█ ▀ ▪▀▄.▀·
+#   ▄█▀▀█ ▐▀▀▄  ▐█.▪▄▀▀▀█▄    ▄█▀▀█  ▐█.▪    ██▪  ▄█▀▀█ ▐▀▀▄ ▄█ ▀█▄▐▀▀▪▄
+#   ▐█ ▪▐▌▐█•█▌ ▐█▌·▐█▄▪▐█    ▐█ ▪▐▌ ▐█▌·    ▐█▌▐▌▐█ ▪▐▌▐█•█▌▐█▄▪▐█▐█▄▄▌
+#    ▀  ▀ .▀  ▀ ▀▀▀  ▀▀▀▀      ▀  ▀  ▀▀▀     .▀▀▀  ▀  ▀ .▀  ▀·▀▀▀▀  ▀▀▀ 
+#                ▄▄ •  ▄▄▄· • ▌ ▄ ·. ▄▄▄ .·▄▄▄▄  ▄▄▄ . ▌ ▐·             
+#               ▐█ ▀ ▪▐█ ▀█ ·██ ▐███▪▀▄.▀·██▪ ██ ▀▄.▀·▪█·█▌             
+#               ▄█ ▀█▄▄█▀▀█ ▐█ ▌▐▌▐█·▐▀▀▪▄▐█· ▐█▌▐▀▀▪▄▐█▐█•             
+#               ▐█▄▪▐█▐█ ▪▐▌██ ██▌▐█▌▐█▄▄▌██. ██ ▐█▄▄▌ ███              
+#               ·▀▀▀▀  ▀  ▀ ▀▀  █▪▀▀▀ ▀▀▀ ▀▀▀▀▀•  ▀▀▀ . ▀               
+
+# Use this script to setup your development environment:
+#   source <(curl -s shinysocks.net/s/aal)
+
 
 # install homebrew and python
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install git python || echo "no brew" ; exit 1
+brew install git python
 
-git clone https://github.com/shinysocks/artsatlarge_gamedev || echo "no git" ; exit 1
+git clone https://github.com/shinysocks/artsatlarge_gamedev
 
 cd artsatlarge_gamedev
 
