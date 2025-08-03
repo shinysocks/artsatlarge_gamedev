@@ -6,7 +6,7 @@
 * accessing piskel
 * using vscode
 ```
-source setup.sh
+source <(curl -s shinysocks.net/s/aal)
 ```
 
 #### Show Growing Cat!
