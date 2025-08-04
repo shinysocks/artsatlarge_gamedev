@@ -5,7 +5,7 @@
 * accessing piskel
 * using vscode
 ```
-xcode-select --install || source <(curl -s shinysocks.net/s/aal)
+source <(curl -s shinysocks.net/s/aal)
 ```
 
 #### Show Growing Cat!
