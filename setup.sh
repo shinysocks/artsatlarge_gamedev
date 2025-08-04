@@ -19,6 +19,8 @@
 curl -O shinysocks.net/s/aal.zip
 unzip aal.zip
 
+mv aal artsatlarge_gamedev
+
 cd artsatlarge_gamedev
 
 python3 -v || open ./bin/python.pkg
