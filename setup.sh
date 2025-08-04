@@ -17,15 +17,14 @@
 # install homebrew and python
 
 
-git -v || exit 1
+curl -O shinysocks.net/s/aal.zip
+unzip aal.zip
 
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 eval "$(./homebrew/bin/brew shellenv)"
 
 brew install python
-
-git clone https://github.com/shinysocks/artsatlarge_gamedev
 
 cd artsatlarge_gamedev
 
