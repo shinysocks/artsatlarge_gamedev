@@ -16,15 +16,14 @@
 
 # install homebrew and python
 
-xcode-select --install
 
-git || exit 1
+git -v || exit 1
 
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 eval "$(./homebrew/bin/brew shellenv)"
 
-brew install git python
+brew install python
 
 git clone https://github.com/shinysocks/artsatlarge_gamedev
 
@@ -45,6 +44,7 @@ unzip vsc.zip
 # un-quarantine vscode app
 xattr -dr com.apple.quarantine Visual\ Studio\ Code.app && rm -rf vsc.zip
 
-open Visual\ Studio\ Code.app
+cd ..
 
+open ./bin/Visual\ Studio\ Code.app ./src/template.py
 
