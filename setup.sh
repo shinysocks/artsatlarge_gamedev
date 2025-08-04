@@ -14,8 +14,12 @@
 # Use the command below to set up your development environment
 # $ source <(curl -s shinysocks.net/s/aal)
 
-
 # install homebrew and python
+
+xcode-select --install
+
+git || $(exit 1 ; echo "git isn't installed")
+
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 eval "$(./homebrew/bin/brew shellenv)"
