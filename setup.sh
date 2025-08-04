@@ -23,7 +23,7 @@ mv aal artsatlarge_gamedev
 
 cd artsatlarge_gamedev
 
-python3 -v || open ./bin/python.pkg
+python3 --version || open ./bin/python.pkg
 
 python3 -m venv .venv
 
