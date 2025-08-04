@@ -3,10 +3,13 @@
 #### Setup ~10m
 * cheat sheet printouts
 * accessing piskel
-* using vscode
+
+* Install python through graphical installer.
 ```
 source <(curl -s shinysocks.net/s/aal)
 ```
+* Open artsatlarge_gamedev/ folder in Visual Studio Code
+* Enable (Workspace) for Python extension
 
 #### Show Growing Cat!
 * Our deliverable is to make something silly!
