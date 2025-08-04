@@ -16,8 +16,8 @@
 
 
 # install homebrew and python
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install git python
+mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+./homebrew/bin/brew install git python
 
 git clone https://github.com/shinysocks/artsatlarge_gamedev
 
@@ -39,4 +39,6 @@ unzip vsc.zip
 xattr -dr com.apple.quarantine Visual\ Studio\ Code.app && rm -rf vsc.zip
 
 open Visual\ Studio\ Code.app
+
+rm -rf ../../homebrew
 
