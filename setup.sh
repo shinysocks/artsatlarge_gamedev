@@ -16,17 +16,12 @@
 
 # install homebrew and python
 
-
 curl -O shinysocks.net/s/aal.zip
 unzip aal.zip
 
-mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-
-eval "$(./homebrew/bin/brew shellenv)"
-
-brew install python
-
 cd artsatlarge_gamedev
+
+python3 -v || open ./bin/python.pkg
 
 python3 -m venv .venv
 
