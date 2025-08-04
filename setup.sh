@@ -18,7 +18,7 @@
 
 xcode-select --install
 
-git || $(exit 1 ; echo "git isn't installed")
+git || exit 1
 
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
